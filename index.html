@@ -113,15 +113,40 @@
     document.getElementById('question2').style.display = 'block';
   }
 
-  function showLetter() {
-  document.getElementById('question2').style.display = 'none';
-  document.getElementById('letterBox').style.display = 'block';
-  const audio = document.getElementById('bg-music');
-  audio.volume = 1.0;
-  audio.play()
-    .catch(err => console.log("Audio playback failed:", err));
-}
+  <script>
+  function goToNextQuestion() {
+    document.getElementById('question1').style.display = 'none';
+    document.getElementById('question2').style.display = 'block';
   }
+
+  function showLetter() {
+    // Hide question 2
+    document.getElementById('question2').style.display = 'none';
+
+    // Show the letter
+    const letter = document.getElementById('letterBox');
+    letter.style.display = 'block';
+
+    // Try to play the music
+    const audio = document.getElementById('bg-music');
+    audio.volume = 1.0;
+
+    // Add this check to ensure user interaction triggers it
+    audio.play().catch(err => {
+      console.warn("Music couldn't play automatically:", err);
+    });
+  }
+
+  function notReady() {
+    document.getElementById('question2').style.display = 'none';
+    document.getElementById('notReadyBox').style.display = 'block';
+  }
+
+  function notNow() {
+    document.getElementById('question1').style.display = 'none';
+    document.getElementById('laterBox').style.display = 'block';
+  }
+</script>
 
   function notReady() {
     document.getElementById('question2').style.display = 'none';
