@@ -7,19 +7,22 @@
 </head>
 <body>
 
+<!-- Falling hearts canvas -->
 <canvas id="heart-canvas"></canvas>
-<audio id="bg-music" src="Music.mp3" preload="auto"></audio>
+
+<!-- Background music (only plays after Yes) -->
+<audio id="bg-music" src="music.mp3" preload="auto"></audio>
 
 <div class="container">
 
-  <!-- First Question -->
+  <!-- Question 1 -->
   <div id="question1">
     <h1>🎁 Do you have time to read this surprise?</h1>
     <button onclick="goToNextQuestion()">Yes</button>
     <button onclick="notNow()">Maybe later</button>
   </div>
 
-  <!-- Second Question -->
+  <!-- Question 2 -->
   <div id="question2" style="display:none;">
     <h1>💌 Are you ready to read the love letter?</h1>
     <button onclick="showLetter()">Yes</button>
@@ -93,7 +96,7 @@
     </div>
   </div>
 
-  <!-- Not Ready Responses -->
+  <!-- Not ready responses -->
   <div id="notReadyBox" class="fade-in" style="display: none;">
     <h2>It’s okay 💖</h2>
     <p>Come back whenever your heart feels ready.</p>
@@ -106,47 +109,26 @@
 
 </div>
 
+<!-- Falling heart animation -->
 <script src="hearts.js"></script>
+
+<!-- Button logic and music play -->
 <script>
   function goToNextQuestion() {
     document.getElementById('question1').style.display = 'none';
     document.getElementById('question2').style.display = 'block';
   }
 
-  <script>
-  function goToNextQuestion() {
-    document.getElementById('question1').style.display = 'none';
-    document.getElementById('question2').style.display = 'block';
-  }
-
   function showLetter() {
-    // Hide question 2
     document.getElementById('question2').style.display = 'none';
+    document.getElementById('letterBox').style.display = 'block';
 
-    // Show the letter
-    const letter = document.getElementById('letterBox');
-    letter.style.display = 'block';
-
-    // Try to play the music
     const audio = document.getElementById('bg-music');
     audio.volume = 1.0;
-
-    // Add this check to ensure user interaction triggers it
     audio.play().catch(err => {
-      console.warn("Music couldn't play automatically:", err);
+      console.warn("Music playback failed:", err);
     });
   }
-
-  function notReady() {
-    document.getElementById('question2').style.display = 'none';
-    document.getElementById('notReadyBox').style.display = 'block';
-  }
-
-  function notNow() {
-    document.getElementById('question1').style.display = 'none';
-    document.getElementById('laterBox').style.display = 'block';
-  }
-</script>
 
   function notReady() {
     document.getElementById('question2').style.display = 'none';
