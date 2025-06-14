@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Love Letter Surprise</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<canvas id="heart-canvas"></canvas>
+<audio id="bg-music" src="music.mp3" preload="auto"></audio>
+
+<div class="container">
+
+  <!-- First Question -->
+  <div id="question1">
+    <h1>🎁 Do you have time to read this surprise?</h1>
+    <button onclick="goToNextQuestion()">Yes</button>
+    <button onclick="notNow()">Maybe later</button>
+  </div>
+
+  <!-- Second Question -->
+  <div id="question2" style="display:none;">
+    <h1>💌 Are you ready to read the love letter?</h1>
+    <button onclick="showLetter()">Yes</button>
+    <button onclick="notReady()">No</button>
+  </div>
+
+  <!-- Love Letter -->
+  <div id="letterBox" class="fade-in" style="display: none;">
+    <div class="letter">
+      <h2>💗 To Meezna 💗</h2>
+      <p>
+        To Meezna,<br><br>
+
+        I need to ask you something—honestly, from my heart.<br><br>
+
+        Do my words…<br>
+        my poems,<br>
+        my messages,<br>
+        this silent love I carry—<br>
+        do they ever trigger something in you?<br>
+        Do they overwhelm you when you’re trying to stay grounded?<br>
+        Just let me know.<br><br>
+
+        Does my presence,<br>
+        the way I show up for you,<br>
+        the way I feel for you—<br>
+        does it in any way hurt you or the love you share with Nishant?<br>
+        Please… just let me know.<br><br>
+
+        Because I don’t ever want to be a reason for unrest in your life.<br>
+        If you ever need space,<br>
+        I will understand.<br>
+        I will step back with grace—quietly, without blame.<br><br>
+
+        But if I could still be by your side,<br>
+        even just as that close friend—<br>
+        the one you can joke with about anything,<br>
+        laugh with in midnight messages,<br>
+        confess the random silly things to,<br>
+        and lean on when the world feels too heavy…<br>
+        then that would mean the world to me.<br><br>
+
+        I never asked to love you.<br>
+        And I know you never asked to be loved by me.<br>
+        But here we are.<br><br>
+
+        I cherish every word you’ve ever said<br>
+        And I understood you then.<br>
+        I still do.<br><br>
+
+        But I need to ask these things.<br>
+        Not because I doubt us—<br>
+        but because I care enough to protect what we have,<br>
+        even if that means redefining it.<br><br>
+
+        I will never stop respecting the life you’ve built.<br>
+        And I will never stop being grateful for the space you gave me in your heart.<br><br>
+
+        So please—tell me honestly,<br>
+        Is my love a weight for you?<br>
+        Or a warmth?<br><br>
+
+        I’ll always be here.<br>
+        As a best friend.<br>
+        Or whatever makes your heart lightest.<br><br>
+
+        Yours,<br>
+        Tufan
+      </p>
+      <p class="footnote">⎯ Boundless love, with graceful boundaries ⎯</p>
+    </div>
+  </div>
+
+  <!-- Not Ready Responses -->
+  <div id="notReadyBox" class="fade-in" style="display: none;">
+    <h2>It’s okay 💖</h2>
+    <p>Come back whenever your heart feels ready.</p>
+  </div>
+
+  <div id="laterBox" class="fade-in" style="display: none;">
+    <h2>Some surprises are worth waiting for 💫</h2>
+    <p>I’ll be right here when you're ready.</p>
+  </div>
+
+</div>
+
+<script src="hearts.js"></script>
+<script>
+  function goToNextQuestion() {
+    document.getElementById('question1').style.display = 'none';
+    document.getElementById('question2').style.display = 'block';
+  }
+
+  function showLetter() {
+    document.getElementById('question2').style.display = 'none';
+    document.getElementById('letterBox').style.display = 'block';
+    document.getElementById('bg-music').play();
+  }
+
+  function notReady() {
+    document.getElementById('question2').style.display = 'none';
+    document.getElementById('notReadyBox').style.display = 'block';
+  }
+
+  function notNow() {
+    document.getElementById('question1').style.display = 'none';
+    document.getElementById('laterBox').style.display = 'block';
+  }
+</script>
+
+</body>
+</html>
